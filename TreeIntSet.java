@@ -25,25 +25,60 @@ public class TreeIntSet implements IntSet {
 				}
 			}
 		}
+
 	}
 
 	public boolean contains(int x) {
+		boolean contains = false;
 		if (this.value == x) {
-			return true;
+			contains = true;
 		} else if (x < this.value) {
 			if (this.left == null) {
-				return false;
+				contains = false;
 			} else {
-				this.left.contains(x);
+				contains = this.left.contains(x);
 			}
 		} else {
 			if (this.right == null) {
-				return false;
+				contains = false;
 			} else {
-				this.right.contains(x);
+				contains = this.right.contains(x);
 			}
 		}
+		return contains;
+	}
 
+	public boolean containsVerbose(int x) {
+		boolean contains = false;
+		if (this.value == x) {
+			System.out.println(this.value + ".");
+			contains = true;
+		} else if (x < this.value) {
+			if (this.left == null) {
+				contains = false;
+			} else {
+				System.out.print(this.left + ", ");
+				contains = this.left.contains(x);
+			}
+		} else {
+			if (this.right == null) {
+				contains = false;
+			} else {
+				System.out.print(this.right + ", ");
+				contains = this.right.contains(x);
+			}
+		}
+		return contains;
+	}
+
+	public String toString() {
+		String result = this.value + ", ";
+		if (this.left != null) {
+			this.left.toString();
+		} else if (this.right != null) {
+			this.right.toString();
+		}
+		return result;
 	}
 
 }
