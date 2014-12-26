@@ -40,4 +40,12 @@ public class ListIntSet implements IntSet {
 			}
 			return contains;
 	}
+
+	public String toString() {
+		String result = this.value + ", ";
+		if (this.next != null) {
+			result = result + this.next.toString();
+		}
+		return result;
+	}
 }
