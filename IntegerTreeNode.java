@@ -62,14 +62,14 @@ public class IntegerTreeNode {
 	public void toStringTree() {
 		System.out.print("[" + this.value + " ");
 		if (this.left == null) {
-			System.out.print("[] ");
+			System.out.print("L[] ");
 		} else {
-			System.out.print("L" + this.left.value + " ");
+			System.out.print("L[" + this.left.value + "] ");
 		}
 		if (this.right == null) {
-			System.out.print("[] ]\n");
+			System.out.print("R[] ]");
 		} else {
-			System.out.print("R" + this.right.value + "]\n");
+			System.out.print("R[" + this.right.value + "]]");
 		}
 		if (this.left != null) {
 			this.left.toStringTree();
