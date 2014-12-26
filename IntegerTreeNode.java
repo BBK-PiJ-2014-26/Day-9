@@ -79,6 +79,19 @@ public class IntegerTreeNode {
 		}
 	}
 
+	public int depth(int x){
+		int leftDepth = x;
+		int rightDepth = x;
+		if(this.left != null){
+	        leftDepth = this.left.depth(x + 1);
+	    }
+	    if(this.right != null){
+	        rightDepth = this.right.depth(x + 1);
+	    }
+		if (leftDepth > rightDepth) {return leftDepth;}
+		else {return rightDepth;}
+	}
+
 	public static void main(String[] args) {
 		IntegerTreeNode n1 = new IntegerTreeNode(6);
 		n1.add(3);
@@ -98,6 +111,14 @@ public class IntegerTreeNode {
 			System.out.println ("False");
 		}
 		System.out.println(n1.getMax() + " " + n1.getMin());
+		n1.toStringTree();
+		n1.add(20);
+		n1.add(8);
+		n1.add(10);
+		n1.add(11);
+		n1.add(12);
+		n1.add(13);
+		System.out.println(n1.depth(0));
 		n1.toStringTree();
 	}
 }
